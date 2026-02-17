@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const steps = [
   { icon: "🖱️", text: "Click and drag to rotate the magazine" },
@@ -8,14 +8,24 @@ const steps = [
   { icon: "↩️", text: "Click 'Cover' to return to the front cover" },
 ];
 
-export default function InteractionGuide() {
-  const [visible, setVisible] = useState(
-    () => !localStorage.getItem("seenGuide")
-  );
+export default function InteractionGuide({ forceOpen, onClose }) {
+  const [visible, setVisible] = useState(false);
+
+  // Show automatically first visit
+  useEffect(() => {
+    const seen = localStorage.getItem("seenGuide");
+    if (!seen) setVisible(true);
+  }, []);
+
+  // Allow force open from button
+  useEffect(() => {
+    if (forceOpen) setVisible(true);
+  }, [forceOpen]);
 
   const close = () => {
     localStorage.setItem("seenGuide", "true");
     setVisible(false);
+    if (onClose) onClose();
   };
 
   if (!visible) return null;
@@ -28,6 +38,7 @@ export default function InteractionGuide() {
         <p className="interaction-subtitle">
           Navigate the interactive magazine using the controls below
         </p>
+
         <ul>
           {steps.map((step, i) => (
             <li key={i}>
@@ -36,6 +47,7 @@ export default function InteractionGuide() {
             </li>
           ))}
         </ul>
+
         <button onClick={close}>Let's Explore →</button>
       </div>
     </div>
