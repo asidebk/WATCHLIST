@@ -16,3 +16,96 @@ body {
 .outline-text {
   -webkit-text-stroke: 1px white;
 }
+
+/* ===== Interaction Guide ===== */
+
+.interaction-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.interaction-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 3rem 3.5rem;
+  color: white;
+  max-width: 560px;
+  width: 90%;
+  text-align: center;
+}
+
+.interaction-card h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.interaction-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1.2rem;
+  margin-top: -0.5rem;
+}
+
+.interaction-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: 1.1rem;
+  color: #bcff11;
+}
+
+.interaction-card ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.step-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.interaction-badge {
+  display: inline-block;
+  background: #bcff11;
+  color: black;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.interaction-card button {
+  background: white;
+  color: black;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.interaction-card button:hover {
+  opacity: 0.85;
+}
