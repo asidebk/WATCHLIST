@@ -10,48 +10,40 @@ function App() {
 
   return (
     <>
-      <InteractionGuide />
+      <InteractionGuide forceOpen={showGuide} onClose={() => setShowGuide(false)} />
       <UI />
       <Loader />
       <Canvas
         shadows
         camera={{
-          position: [-0.5, 1, window.innerWidth > 800 ? 4 : 9],
-          fov: 45,
+          position: [-0.5, window.innerWidth > 768 ? 1 : 2.5, window.innerWidth > 768 ? 4 : 6.5],
+          fov: window.innerWidth > 768 ? 45 : 55,
         }}
       >
-        <group position-y={0}>
+        <group position-y={window.innerWidth > 768 ? 0 : 0.8}>
           <Suspense fallback={null}>
             <Experience />
           </Suspense>
         </group>
       </Canvas>
 
-      {/* DEV ONLY - remove before deploying */}
-      {import.meta.env.DEV && (
-        <button
-          onClick={() => {
-            localStorage.removeItem("seenGuide");
-            window.location.reload();
-          }}
-          style={{
-            position: "fixed",
-            bottom: 16,
-            right: 16,
-            zIndex: 99999,
-            background: "#bcff11",
-            color: "black",
-            border: "none",
-            borderRadius: "999px",
-            padding: "0.8rem 1.8rem",
-            fontWeight: 700,
-            fontSize: "1rem",
-            cursor: "pointer",
-          }}
-        >
-          Site Instructions
-        </button>
-      )}
+      {/* Site Instructions button — top right on mobile, bottom right on desktop */}
+      <button
+        onClick={() => {
+          localStorage.removeItem("seenGuide");
+          setShowGuide(true);
+        }}
+        className="
+          fixed z-[99999]
+          top-4 right-4
+          md:top-auto md:bottom-4 md:right-4
+          bg-[#bcff11] text-black border-none rounded-full
+          px-5 py-3 font-bold text-sm md:text-base
+          cursor-pointer
+        "
+      >
+        Site Instructions
+      </button>
     </>
   );
 }

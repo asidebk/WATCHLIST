@@ -9,15 +9,10 @@ const steps = [
 ];
 
 export default function InteractionGuide({ forceOpen, onClose }) {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(
+    () => !localStorage.getItem("seenGuide")
+  );
 
-  // Show automatically first visit
-  useEffect(() => {
-    const seen = localStorage.getItem("seenGuide");
-    if (!seen) setVisible(true);
-  }, []);
-
-  // Allow force open from button
   useEffect(() => {
     if (forceOpen) setVisible(true);
   }, [forceOpen]);
@@ -38,7 +33,6 @@ export default function InteractionGuide({ forceOpen, onClose }) {
         <p className="interaction-subtitle">
           Navigate the interactive magazine using the controls below
         </p>
-
         <ul>
           {steps.map((step, i) => (
             <li key={i}>
@@ -47,7 +41,6 @@ export default function InteractionGuide({ forceOpen, onClose }) {
             </li>
           ))}
         </ul>
-
         <button onClick={close}>Let's Explore →</button>
       </div>
     </div>
