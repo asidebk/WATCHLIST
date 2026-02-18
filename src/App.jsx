@@ -27,7 +27,7 @@ function App() {
         </group>
       </Canvas>
 
-      {/* Site Instructions button — top right on mobile, bottom right on desktop */}
+      {/* Site Instructions button — top right on all screens */}
       <button
         onClick={() => {
           localStorage.removeItem("seenGuide");
@@ -36,7 +36,6 @@ function App() {
         className="
           fixed z-[99999]
           top-4 right-4
-          md:top-auto md:bottom-4 md:right-4
           bg-[#bcff11] text-black border-none rounded-full
           px-5 py-3 font-bold text-sm md:text-base
           cursor-pointer
