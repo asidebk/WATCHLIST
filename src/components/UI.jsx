@@ -52,10 +52,10 @@ export const UI = () => {
         </h2>
 
         {/* Full description — desktop only */}
-        <p className="
-          hidden
-          md:block md:text-base md:leading-relaxed md:text-[#bcff11] md:max-w-[460px]
-        ">
+        <p
+          className="hidden md:block md:text-base md:leading-relaxed md:max-w-[460px]"
+          style={{ color: "black" }}
+        >
           The Engineering Watchlist highlights breakthrough innovators shaping
           the future of technology. From advanced materials to micromachines,
           these leaders are redefining what's possible in science, industry,
@@ -63,7 +63,7 @@ export const UI = () => {
         </p>
 
         {/* Short tagline — mobile only */}
-        <p className="text-xs text-[#bcff11] md:hidden">
+        <p className="text-xs md:hidden" style={{ color: "black" }}>
           Breakthrough innovators shaping the future of technology.
         </p>
       </div>
@@ -83,7 +83,7 @@ export const UI = () => {
                   border-transparent hover:border-white transition-all duration-300
                   px-3 py-1.5 md:px-4 md:py-3
                   rounded-full text-xs md:text-lg uppercase shrink-0 border
-                  ${index === page ? "bg-white/90 text-black" : "bg-black/30 text-white"}
+                  ${index === page ? "bg-[#f2c50a] text-black" : "bg-black/30 text-white"}
                 `}
                 onClick={() => setPage(index)}
               >
@@ -95,7 +95,7 @@ export const UI = () => {
                 border-transparent hover:border-white transition-all duration-300
                 px-3 py-1.5 md:px-4 md:py-3
                 rounded-full text-xs md:text-lg uppercase shrink-0 border
-                ${page === pages.length ? "bg-white/90 text-black" : "bg-black/30 text-white"}
+                ${page === pages.length ? "bg-[#f2c50a] text-black" : "bg-black/30 text-white"}
               `}
               onClick={() => setPage(pages.length)}
             >
@@ -105,27 +105,27 @@ export const UI = () => {
         </div>
       </main>
 
-      {/* NEON SCROLLING TYPOGRAPHY — desktop only */}
+      {/* SCROLLING TYPOGRAPHY — desktop only */}
       <div className="hidden md:flex fixed inset-0 items-center -rotate-2 select-none pointer-events-none">
         <div className="relative">
           <div className="animate-horizontal-scroll flex items-center gap-12 w-max px-8">
-            <h1 className="shrink-0 text-[#bcff11] text-11xl font-black neon-flicker">
+            <h1 className="shrink-0 text-11xl font-black" style={{ color: "#f2c50a" }}>
               Mechanical Engineering Watch List 2026 Nominees
             </h1>
             <h1
-              className="shrink-0 text-transparent text-11xl font-black neon-flicker"
-              style={{ WebkitTextStroke: "2px #bcff11" }}
+              className="shrink-0 text-11xl font-black"
+              style={{ WebkitTextStroke: "2px #f2c50a", color: "transparent" }}
             >
               Mechanical Engineering Watch List 2026 Nominees
             </h1>
           </div>
           <div className="absolute top-0 left-0 animate-horizontal-scroll-2 flex items-center gap-12 px-8 w-max">
-            <h1 className="shrink-0 text-[#bcff11] text-11xl font-black neon-flicker">
+            <h1 className="shrink-0 text-11xl font-black" style={{ color: "#f2c50a" }}>
               Mechanical Engineering Watch List 2026 Nominees
             </h1>
             <h1
-              className="shrink-0 text-transparent text-11xl font-black neon-flicker"
-              style={{ WebkitTextStroke: "2px #bcff11" }}
+              className="shrink-0 text-11xl font-black"
+              style={{ WebkitTextStroke: "2px #f2c50a", color: "transparent" }}
             >
               Mechanical Engineering Watch List 2026 Nominees
             </h1>

@@ -36,7 +36,7 @@ function App() {
         className="
           fixed z-[99999]
           top-4 right-4
-          bg-[#bcff11] text-black border-none rounded-full
+          bg-[#f2c50a] text-black border-none rounded-full
           px-5 py-3 font-bold text-sm md:text-base
           cursor-pointer
         "

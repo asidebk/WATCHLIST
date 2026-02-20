@@ -6,7 +6,7 @@
 #root {
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(#5a47ce, #232323 80%);
+  background: radial-gradient(#2a8a73, #45bba1 80%);
 }
 
 body {
@@ -65,7 +65,7 @@ body {
   flex-direction: column;
   gap: 0.8rem;
   font-size: 1.1rem;
-  color: #bcff11;
+  color: #f2c50a;
 }
 
 .interaction-card ul li {
@@ -82,7 +82,7 @@ body {
 
 .interaction-badge {
   display: inline-block;
-  background: #bcff11;
+  background: #f2c50a;
   color: black;
   font-size: 0.75rem;
   font-weight: 700;
@@ -94,7 +94,7 @@ body {
 }
 
 .interaction-card button {
-  background: white;
+  background: #f2c50a;
   color: black;
   border: none;
   border-radius: 999px;
